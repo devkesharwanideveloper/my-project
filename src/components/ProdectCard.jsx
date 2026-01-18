@@ -1,11 +1,12 @@
-import React from "react";
+import { ShoppingCart } from 'lucide-react';
 import { Link } from "react-router-dom";
+
 const ProdectCard = ({ dataSet }) => {
   return (
     <>
       <div className="bg-gray-900 rounded-2xl shadow-2xl overflow-hidden flex flex-col h-full transition duration-500 transform border border-gray-800  group hover:scale-[1.03] hover:shadow-orange-900/40 ">
         <Link
-          to={"/dataSet"}
+          to={`/ProductDetail/${dataSet.id}`}
           className="relative cursor-pointer overflow-hidden"
         >
           <img
@@ -24,8 +25,11 @@ const ProdectCard = ({ dataSet }) => {
             </h3>
            </Link>
 
-           <p> {dataSet.description}</p>
-
+           <p className="text-gray-400 text-sm mb-4 line-clamp-3  "> {dataSet.description}</p>
+               <div className="flex items-center text-gray-500  mb-4">
+                 <span className="px-3 py-1 bg-gray-800  rounded-full font-semibold">{dataSet.category}</span>
+               </div>
+               <button className="max-auto w-full py-3 bg-orange-600 text-white font-bold rounded-full shadow-lg shadow-orange-800/50 cursor-pointer hover:bg-orange-700 transition duration-300 flex items-center justify-center space-x-2 hover:ring-4 hover:ring-pink-600/50 uppercase tracking-widest"> <ShoppingCart className="w-5 h-5" /> <span>Add To Cart</span> </button>
         </div>
       </div>
     </>

@@ -9,7 +9,7 @@ import OrderConfirmetion from "./pages/OrderConfirmetion";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 export default function App() {
   return (
-    <div >
+    <div>
       <BrowserRouter>
         <div className="  ">
           <Navbar />
@@ -17,7 +17,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<ProductList />} />
 
-          <Route path="/product:id" element={<ProductDetail />} />
+          <Route path="/product/:id" element={<ProductDetail />} />
 
           <Route path="/cart" element={<Cart />} />
 
