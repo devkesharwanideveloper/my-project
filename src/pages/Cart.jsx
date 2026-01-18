@@ -2,9 +2,9 @@ import React from 'react'
 import { useCart } from '../context/CartContext'
 import { Link } from 'react-router-dom'
 import { ShoppingCart,ChevronLeft,Zap } from 'lucide-react' ;
-import CartItem from 
+
 const Cart = () => {
-  const {Cart,cartTotal,cartCount}=useCart();
+  const {cart,cartTotal,cartCount}=useCart();
   return (
     <div>
       <>
@@ -21,7 +21,7 @@ const Cart = () => {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 ">
             <div className='lg:col-span-2 space-y-4  '>
 
-              {Cart.map(item=>)}
+              
             </div>
           </div>
         </div>
