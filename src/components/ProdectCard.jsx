@@ -6,7 +6,7 @@ const ProdectCard = ({ dataSet }) => {
     <>
       <div className="bg-gray-900 rounded-2xl shadow-2xl overflow-hidden flex flex-col h-full transition duration-500 transform border border-gray-800  group hover:scale-[1.03] hover:shadow-orange-900/40 ">
         <Link
-          to={`/ProductDetail/${dataSet.id}`}
+          to={`/product/${dataSet.id}`}
           className="relative cursor-pointer overflow-hidden"
         >
           <img
