@@ -1,12 +1,14 @@
-import { ChevronLeft,ShoppingCart, Tag, Zap } from "lucide-react";
+import { ChevronLeft, ShoppingCart, Tag, Zap } from "lucide-react";
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { initialProducts } from "../data/product";
-
+import { useCart } from "../context/CartContext";
 const ProductDetail = () => {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
+
+  const { addTocart } = useCart();
 
   useEffect(() => {
     const foundProduct = initialProducts.find((data) => data.id == id);
@@ -26,7 +28,7 @@ const ProductDetail = () => {
     <>
       <div className="container mx-auto px-4 md:px-8 bg-gray-900 min-h-screen rounded-2xl shadow-2xl my-8 p-6 md:p-12 border border-gray-800">
         <Link to={"/"}>
-          <button className="cursor-pointer flext items-center text-gray-400 hover:text-orange-400  transition duration-150 mb-12 font-semibold text-lg">
+          <button className="flex cursor-pointer flext items-center text-gray-400 hover:text-orange-400  transition duration-150 mb-12 font-semibold text-lg">
             <ChevronLeft className="w-6 h-6 mr-1" />{" "}
             <span> Back To All Products</span>
           </button>
@@ -61,12 +63,12 @@ const ProductDetail = () => {
             <ul className="space-y-3 text-gray-300 p-4 bg-gray-800 rounded-xl border border-gray-700 ">
               <li className="flex items-center space-x-3 text-lg ">
                 <Zap className=" w-5 h-5 text-orange-500 " />
-                <span>Higt-Quality , Professional Greade Materials </span>
+                <span>High-Quality , Professional Grade Materials </span>
               </li>
               <li className="flex items-center space-x-3 text-lg ">
                 <Zap className=" w-5 h-5 text-orange-500 " />
                 <span>
-                  Comprehensive 1 -year Manufacturer Warranty Provider By Kishan{" "}
+                  Comprehensive 1 -year Manufacturer Warranty Provider{" "}
                 </span>
               </li>
               <li className="flex items-center space-x-3 text-lg ">
@@ -74,14 +76,24 @@ const ProductDetail = () => {
                 <span>Immediate Shopping for In Stock Item </span>
               </li>
             </ul>
-         
 
-          <div className=" mt-5 space-y-4 justify-center items-center flex-col">
-            <button className=" w-full py-3 bg-orange-600 text-white font-bold rounded-full shadow-lg shadow-orange-800/50 cursor-pointer hover:bg-orange-700 transition duration-300 flex items-center justify-center space-x-2 hover:ring-4 hover:ring-pink-600/50 uppercase tracking-widest"> <ShoppingCart className="w-5 h-5" /> <span>Add To Cart</span></button>
+            <div className=" mt-5 space-y-4 justify-center items-center flex-col">
+              <button
+                onClick={() => addTocart(product)}
+                className=" w-full py-3 bg-orange-600 text-white font-bold rounded-full shadow-lg shadow-orange-800/50 cursor-pointer hover:bg-orange-700 transition duration-300 flex items-center justify-center space-x-2 hover:ring-4 hover:ring-pink-600/50 uppercase tracking-widest"
+              >
+                {" "}
+                <ShoppingCart className="w-5 h-5  " /> <span>Add To Cart</span>
+              </button>
 
-            <Link to={'/'} className="w-full py-3 border-2  border-orange-600 text-orange-400 font-bold rounded-full  cursor-pointer hover:bg-orange-900/50 transition duration-300 flex items-center justify-center space-x-2 hover:ring-4 hover:ring-pink-600/50 uppercase tracking-widest">Keep Shopping</Link>
+              <Link
+                to={"/"}
+                className="w-full py-3 border-2  border-orange-600 text-orange-400 font-bold rounded-full  cursor-pointer hover:bg-orange-900/50 transition duration-300 flex items-center justify-center space-x-2 hover:ring-4 hover:ring-pink-600/50 uppercase tracking-widest"
+              >
+                Keep Shopping
+              </Link>
+            </div>
           </div>
-           </div>
         </div>
       </div>
     </>
