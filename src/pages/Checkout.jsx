@@ -91,12 +91,18 @@ const Checkout = () => {
 
             <div className="space-y-4 text-gray-400 ">
               {cart.map((item) => (
-                <div key={item.id} className="flex justify-between text-base border-b border-gray-800 pb-2 ">
+                <div
+                  key={item.id}
+                  className="flex justify-between text-base border-b border-gray-800 pb-2 "
+                >
                   <span className="trucate text-gray-300 ">{item.name}</span>
-                  <span className="font-medium text-orange-300"> ₹{(item.price*item.quantity).toFixed(2)}</span>
+                  <span className="font-medium text-orange-300">
+                    {" "}
+                    ₹{(item.price * item.quantity).toFixed(2)}
+                  </span>
                 </div>
               ))}
-            </div>
+            
 
             <div className="space-y-4 text-gray-400 ">
               <div className="flex justify-between text-xl">
@@ -106,7 +112,7 @@ const Checkout = () => {
                   ₹{cartTotal.toFixed(2)}
                 </samp>
               </div>
-
+          </div>
               <div className="flex justify-between text-xl">
                 <samp>Shipping (Express)</samp>
                 <samp className="font-semibold text-green-400">Free</samp>
@@ -122,8 +128,6 @@ const Checkout = () => {
                 </samp>
               </div>
             </div>
-
-
           </div>
         </div>
       </div>

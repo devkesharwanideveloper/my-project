@@ -45,7 +45,7 @@ const Cart = () => {
                   <samp className="font-semibold text-white">
                     {" "}
                     ₹{cartTotal.toFixed(2)}
-                  </samp>
+                  </samp>f
                 </div>
 
                 <div className="flex justify-between text-xl">
