@@ -61,6 +61,7 @@ export const CartProvider = ({ children }) => {
           products,
           cart,
           addTocart,
+          
           clearCart,
           cartTotal,
           cartCount,
