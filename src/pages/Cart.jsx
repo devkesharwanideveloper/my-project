@@ -1,8 +1,7 @@
-import React from "react";
-import { useCart } from "../context/CartContext";
+import { ChevronLeft, Zap } from "lucide-react";
 import { Link } from "react-router-dom";
-import { ShoppingCart, ChevronLeft, Zap } from "lucide-react";
 import CartItem from "../components/CartItem";
+import { useCart } from "../context/CartContext";
 const Cart = () => {
   const { cart, cartTotal, cartCount } = useCart();
   return (
@@ -62,7 +61,6 @@ const Cart = () => {
               </div>
 
                 <Link  to={'/checkout'}
-                onClick={() => addTocart(product)}
                 className=" w-full mt-8 py-4 bg-orange-600 text-white font-extrabold text-xl  rounded-full shadow-lg shadow-orange-800/50 cursor-pointer hover:bg-orange-700 transition duration-300 flex items-center justify-center space-x-2 hover:ring-4 hover:ring-pink-600/50 uppercase tracking-widest"
               >
                 {" "}
